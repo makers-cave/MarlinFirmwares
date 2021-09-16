@@ -4,14 +4,14 @@ This Repo contains various configurations and compiled bin for Creality Printers
 
 ## Folder Structure
 * PrinterModel
-    * Based Marlin Version
+    * Marlin Version
         * Board Version
             * ABL
                 * Config Files
                 * Compiled Bin
 
 ## Features
-Over the Base Line Marlin Project following Features are enabled.
+Over the baseline Marlin Project following Features are enabled.
 * Enabled Babystepping, set steps to 0.05mm on Z axis
 * Enabled Bed Tramming, including Level Center 
 
