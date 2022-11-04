@@ -701,7 +701,7 @@
  * By default the X2 stepper is assigned to the first unused E plug on the board.
  *
  * The following Dual X Carriage modes can be selected with M605 S<mode>:
- * 
+ *
  *   0 : (FULL_CONTROL) The slicer has full control over both X-carriages and can achieve optimal travel
  *       results as long as it supports dual X-carriages. (M605 S0)
  *
@@ -736,7 +736,7 @@
 
   // Default x offset in duplication mode (typically set to half print bed width)
   #define DEFAULT_DUPLICATION_X_OFFSET 100
- 
+
   // Default action to execute following M605 mode change commands. Typically G28X to apply new mode.
   //#define EVENT_GCODE_IDEX_AFTER_MODECHANGE "G28X"
 #endif
@@ -1326,7 +1326,7 @@
   // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
   #define SDCARD_RATHERRECENTFIRST
 
-  // #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
+  #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
   //#define NO_SD_AUTOSTART                 // Remove auto#.g file support completely to save some Flash, SRAM
   //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
@@ -1832,8 +1832,8 @@
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   //#define BABYSTEP_MILLIMETER_UNITS       // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
-  #define BABYSTEP_MULTIPLICATOR_Z  40       // (steps or mm) Steps or millimeter distance for each Z babystep
-  #define BABYSTEP_MULTIPLICATOR_XY 10       // (steps or mm) Steps or millimeter distance for each XY babystep
+  #define BABYSTEP_MULTIPLICATOR_Z  1       // (steps or mm) Steps or millimeter distance for each Z babystep
+  #define BABYSTEP_MULTIPLICATOR_XY 1       // (steps or mm) Steps or millimeter distance for each XY babystep
 
   #define DOUBLECLICK_FOR_Z_BABYSTEPPING    // Double-click on the Status Screen for Z Babystepping.
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
@@ -1847,7 +1847,7 @@
 
   //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
 
-  #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+  //#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
     //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
@@ -3282,8 +3282,11 @@
  * See https://marlinfw.org/docs/configuration/laser_spindle.html for more config details.
  */
 //#define SPINDLE_FEATURE
-//#define LASER_FEATURE
+#define LASER_FEATURE
 #if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
+  #define SPINDLE_LASER_ENA_PIN         PB1
+  #define SPINDLE_LASER_PWM_PIN         PB0
+
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if the on/off function is active HIGH
   #define SPINDLE_LASER_PWM             true   // Set to "true" if your controller supports setting the speed/power
   #define SPINDLE_LASER_PWM_INVERT      false  // Set to "true" if the speed/power goes up when you want it to go slower
@@ -3296,7 +3299,7 @@
     //#define AIR_EVACUATION_PIN        42     // Override the default Cutter Vacuum or Laser Blower pin
   #endif
 
-  //#define AIR_ASSIST                         // Air Assist control with G-codes M8-M9
+  #define AIR_ASSIST                         // Air Assist control with G-codes M8-M9
   #if ENABLED(AIR_ASSIST)
     #define AIR_ASSIST_ACTIVE           LOW    // Active state on air assist pin
     //#define AIR_ASSIST_PIN            44     // Override the default Air Assist pin
@@ -3368,7 +3371,7 @@
      * This allows the laser to keep in perfect sync with the planner and removes
      * the powerup/down delay since lasers require negligible time.
      */
-    //#define LASER_POWER_INLINE
+    #define LASER_POWER_INLINE
 
     #if ENABLED(LASER_POWER_INLINE)
       /**
