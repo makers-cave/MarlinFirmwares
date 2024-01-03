@@ -1,0 +1,21 @@
+﻿Steller applicable model and motherboard version
+
+Printer model: CR-10 Smart
+Software version: v1.0.14
+Motherboard Silk Printing: CRC2405V1.2
+illustrate:
+   The firmware optimizes the UI PID control page font size, and the version is upgraded to 1.0.14
+  
+Screen update instructions:
+     1. Format the TF card on the computer, and select 4096 to allocate the size of the unit.
+     2. Put dwin_set、private into the memory card.
+     3. Turn off the printer and insert the memory card into the screen card slot.
+     4. Restart and wait for the update.
+     5. After completing the update, remove the TF card and delete the file inside.
+
+Motherboard update:
+    1. Format the TF card on the computer, and select 4096 to allocate the size of the unit.
+    2. Put the firmware file "CR-10 SMARTMARLIN2.0.6CRC2405V1.0.14.bin" into the memory card (this step is necessary, please note).
+    3. Turn off the printer and insert the memory card into the machine card slot.
+    4. Restart and wait for the update.
+    5. After completing the update, take out the TF card and delete the bin file inside.
